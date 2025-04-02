@@ -1,0 +1,17 @@
+{
+  "name": "animeworld",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "acceuil.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "animejs": "^3.2.2",
+    "axios": "^1.7.9",
+    "sweetalert2": "^11.15.2"
+  }
+}

@@ -1,0 +1,387 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+header {
+  background-color: #3f51b5;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+section#anime-list,
+section#library-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+#anime-cards,
+#library-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.anime-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  width: 200px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  display: flex; /* Flexbox pour structurer les éléments */
+  flex-direction: column; /* Aligne les éléments verticalement */
+  justify-content: space-between; /* Espace entre les éléments */
+}
+
+.anime-card img {
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.anime-card h3 {
+  margin: 10px 0; /* Espacement autour du titre */
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.anime-card:hover {
+  transform: scale(1.05);
+}
+
+.anime-card button {
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.anime-card .play-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.anime-card .pause-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.anime-card .play-btn:hover,
+.anime-card .pause-btn:hover {
+  background-color: #45a049;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Loader (pour l'affichage de chargement) */
+#loader {
+  text-align: center;
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+/* Boutons toujours en bas */
+.add-to-db {
+  background-color: #3f51b5; /* Couleur de fond bleu */
+  color: white; /* Couleur du texte */
+  font-size: 16px; /* Taille du texte */
+  padding: 10px 20px; /* Espacement interne */
+  border: none; /* Pas de bordure */
+  border-radius: 25px; /* Bords arrondis */
+  cursor: pointer; /* Curseur en forme de main */
+  transition: all 0.3s ease; /* Transition douce pour les effets */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Ombre légère sous le bouton */
+  text-transform: uppercase; /* Met le texte en majuscule */
+  font-weight: bold; /* Texte en gras */
+  margin: 10px; /* Espacement intérieur pour éviter que le bouton touche les bords */
+  align-self: center; /* Centre horizontalement le bouton */
+}
+
+/* Effet au survol du bouton */
+.add-to-db:hover {
+  background-color: #536dfe; /* Changement de couleur de fond au survol */
+  transform: translateY(-3px); /* Légère élévation lors du survol */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Ombre plus marquée */
+}
+
+/* Effet de focus sur le bouton (quand il est sélectionné) */
+button.add-to-db:focus {
+  outline: none; /* Enlève le contour par défaut */
+  box-shadow: 0 0 0 4px rgba(63, 81, 181, 0.5); /* Légère bordure bleue */
+}
+
+/* Effet de clic (au moment de l'action) */
+button.add-to-db:active {
+  transform: scale(0.98); /* Le bouton "se contracte" lors du clic */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Ombre moins prononcée */
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #3f51b5;
+  color: white;
+}
+
+/* Responsivité : adaption à différents écrans */
+@media screen and (max-width: 768px) {
+  section#anime-list {
+    justify-content: center;
+  }
+
+  .anime-card {
+    width: 100%; /* Les cartes prennent toute la largeur de l'écran sur mobile */
+    max-width: 300px;
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  header {
+    font-size: 18px; /* Réduire la taille du texte sur mobile */
+    padding: 15px;
+  }
+
+  footer {
+    font-size: 12px;
+  }
+}
+
+/* Style général pour la page d'accueil */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.homepage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: url("./images/4afc9b072b54a7e23b750bccf5d941cc.gif") no-repeat
+    center center/cover; /* Remplacez par une image de fond de mangas */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.content {
+  color: white;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+/* Style du bouton */
+.start-btn {
+  background-color: #ff5722; /* Couleur orange */
+  color: white;
+  font-size: 18px;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: pulse 1.5s infinite;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.start-btn:hover {
+  background-color: #e64a19;
+  transform: scale(1.1);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(255, 87, 34, 0.5);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 87, 34, 0.7);
+  }
+}
+
+/* S'assurer que l'image s'adapte aux petits écrans */
+@media screen and (max-width: 768px) {
+  .homepage {
+    background-size: cover; /* Toujours couvrir toute la surface */
+    background-position: center; /* S'assurer que le centre de l'image reste visible */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .homepage {
+    background-size: cover; /* Couvre encore la surface sur les téléphones */
+    background-position: center; /* Garde le centre comme point d'intérêt */
+  }
+
+  .content h1 {
+    font-size: 1.5rem; /* Réduit davantage le titre */
+  }
+}
+
+.home-btn {
+  display: block;
+  margin: 20px auto;
+  padding: 15px 30px;
+  font-size: 18px;
+  color: white;
+  background-color: #3f51b5;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.home-btn:hover {
+  background-color: #536dfe;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.home-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.home-btn {
+  animation: pulse 2s infinite;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+header {
+  background-color: #3f51b5;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+#library-list {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 20px;
+}
+
+#library-cards {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.anime-card {
+  flex: 0 0 auto;
+  width: 250px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.anime-card img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.anime-card h3 {
+  margin: 10px 0;
+}
+
+.anime-card button {
+  background-color: #e91e63;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.anime-card button:hover {
+  background-color: #d81b60;
+}
+
+.home-btn {
+  display: block;
+  margin: 20px auto;
+  padding: 15px 30px;
+  font-size: 18px;
+  color: white;
+  background-color: #3f51b5;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.home-btn:hover {
+  background-color: #536dfe;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.home-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}

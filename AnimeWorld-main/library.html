@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ma Bibliothèque</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <marquee behavior="scroll" direction="left" scrollamount="5"
+        ><h1>Ma Bibliothèque</h1></marquee
+      >
+    </header>
+
+    <section id="library-list">
+      <div id="library-cards"></div>
+    </section>
+
+    <button class="home-btn" onclick="redirectToHome()">
+      Retour à l'accueil
+    </button>
+    <footer>
+      <p>&copy; 2024 Manga & Anime App</p>
+    </footer>
+
+    <script src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script src="library.js"></script>
+    <script>
+      function redirectToHome() {
+        window.location.href = "acceuil.html";
+      }
+    </script>
+  </body>
+</html>

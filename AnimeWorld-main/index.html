@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mangas et Animes</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <marquee behavior="scroll" direction="left" scrollamount="5"
+        ><h1>Bienvenue dans l'univers des Mangas et Animes</h1></marquee
+      >
+    </header>
+
+    <section id="anime-list">
+      <div id="loader">Chargement...</div>
+      <div id="anime-cards"></div>
+    </section>
+
+    <button class="home-btn" onclick="redirectToHome()">
+      Retour à l'accueil
+    </button>
+    <footer>
+      <p>&copy; 2024 Manga & Anime App</p>
+    </footer>
+
+    <script src="node_modules/axios/dist/axios.min.js"></script>
+    <script src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script src="node_modules/animejs/lib/anime.min.js"></script>
+    <script src="main.js"></script>
+    <script>
+      function redirectToHome() {
+        window.location.href = "acceuil.html";
+      }
+    </script>
+  </body>
+</html>

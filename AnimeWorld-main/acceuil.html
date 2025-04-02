@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accueil</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="homepage">
+      <div class="content">
+        <h1>Bienvenue dans le Monde des Mangas</h1>
+        <button class="start-btn" onclick="redirectToCatalogue()">
+          Explorez les Mangas
+        </button>
+        <button class="start-btn" onclick="redirectToLibrary()">
+          Ma Bibliothèque
+        </button>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 Manga & Anime App</p>
+    </footer>
+
+    <script>
+      function redirectToCatalogue() {
+        window.location.href = "index.html";
+      }
+
+      function redirectToLibrary() {
+        window.location.href = "library.html";
+      }
+    </script>
+    <script src="node_modules/axios/dist/axios.min.js"></script>
+    <script src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script src="node_modules/animejs/lib/anime.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
