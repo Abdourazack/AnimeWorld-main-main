@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AnimeWorld — Accueil</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="data:," />
+  </head>
+
+  <body>
+    <header class="topbar">
+      <div class="topbar__inner">
+        <h1 class="brand">AnimeWorld</h1>
+        <div class="topbar__actions">
+          <button id="theme-toggle" class="btn btn--ghost" type="button">
+            🌙 Mode sombre
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="home">
+      <section class="hero-split">
+        <div class="hero-split__left">
+          <div class="hero__badge">✨ Découvre • Ajoute • Collectionne</div>
+
+          <h2 class="hero__title">Bienvenue dans le Monde des Mangas</h2>
+          <p class="hero__lead">
+            Explore un catalogue immense, ajoute tes favoris à ta bibliothèque, et garde tout au même endroit.
+          </p>
+
+          <div class="hero__actions">
+            <button class="btn btn--primary" id="go-catalogue" type="button">
+              Explorer le catalogue
+            </button>
+            <button class="btn" id="go-library" type="button">
+              Ma bibliothèque
+            </button>
+          </div>
+
+          <div class="hero__mini">
+            <div class="mini">
+              <span class="mini__kpi">25</span>
+              <span class="mini__label">animes / page</span>
+            </div>
+            <div class="mini">
+              <span class="mini__kpi">⚡</span>
+              <span class="mini__label">rapide & fluide</span>
+            </div>
+            <div class="mini">
+              <span class="mini__kpi">💾</span>
+              <span class="mini__label">offline</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-split__right">
+          <div
+            class="hero-split__image"
+            style="background-image:url('./images/4afc9b072b54a7e23b750bccf5d941cc.gif');"
+            aria-hidden="true"
+          ></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Manga & Anime App</p>
+    </footer>
+
+    <script>
+      document.getElementById("go-catalogue")?.addEventListener("click", () => {
+        window.location.href = "catalogue.html";
+      });
+      document.getElementById("go-library")?.addEventListener("click", () => {
+        window.location.href = "library.html";
+      });
+
+      const root = document.documentElement;
+      const btn = document.getElementById("theme-toggle");
+      const saved = localStorage.getItem("theme");
+      if (saved === "dark") root.classList.add("theme-dark");
+
+      function updateLabel() {
+        const isDark = root.classList.contains("theme-dark");
+        if (btn) btn.textContent = isDark ? "☀️ Mode clair" : "🌙 Mode sombre";
+      }
+
+      btn?.addEventListener("click", () => {
+        root.classList.toggle("theme-dark");
+        localStorage.setItem(
+          "theme",
+          root.classList.contains("theme-dark") ? "dark" : "light"
+        );
+        updateLabel();
+      });
+
+      updateLabel();
+    </script>
+  </body>
+</html>

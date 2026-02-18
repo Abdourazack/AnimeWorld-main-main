@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AnimeWorld — Catalogue</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="data:," />
+  </head>
+
+  <body>
+    <header class="topbar">
+      <div class="topbar__inner">
+        <h1 class="brand">AnimeWorld</h1>
+
+        <div class="topbar__actions">
+          <button id="theme-toggle" class="btn btn--ghost" type="button">
+            🌙 Mode sombre
+          </button>
+          <button class="btn" id="back-home" type="button">Accueil</button>
+        </div>
+      </div>
+    </header>
+
+    <section id="anime-list">
+      <div id="loader">Chargement...</div>
+      <div id="anime-cards"></div>
+
+      <div class="pager">
+        <button id="prev-page" class="btn" type="button">← Précédent</button>
+
+        <div class="pager__info">
+          <span>Page</span>
+          <strong id="page-current">1</strong>
+          <span>/</span>
+          <span id="page-total">?</span>
+        </div>
+
+        <div class="pager__jump">
+          <input id="page-input" type="number" min="1" placeholder="N°" />
+          <button id="go-page" class="btn btn--primary" type="button">
+            Aller
+          </button>
+        </div>
+
+        <button id="next-page" class="btn" type="button">Suivant →</button>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 Manga & Anime App</p>
+    </footer>
+
+    <script type="module" src="/main.js"></script>
+
+    <script>
+      const root = document.documentElement;
+      const btn = document.getElementById("theme-toggle");
+
+      const saved = localStorage.getItem("theme");
+      if (saved === "dark") root.classList.add("theme-dark");
+
+      function updateLabel() {
+        const isDark = root.classList.contains("theme-dark");
+        if (btn) btn.textContent = isDark ? "☀️ Mode clair" : "🌙 Mode sombre";
+      }
+
+      btn?.addEventListener("click", () => {
+        root.classList.toggle("theme-dark");
+        localStorage.setItem(
+          "theme",
+          root.classList.contains("theme-dark") ? "dark" : "light"
+        );
+        updateLabel();
+      });
+
+      updateLabel();
+    </script>
+
+    <script>
+      document.getElementById("back-home")?.addEventListener("click", () => {
+        window.location.href = "acceuil.html";
+      });
+    </script>
+  </body>
+</html>
