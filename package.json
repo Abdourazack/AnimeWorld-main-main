@@ -1,23 +1,18 @@
 {
   "name": "animeworld",
   "version": "1.0.0",
-  "main": "index.js",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "start": "acceuil.html",
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview --host"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
     "animejs": "^3.2.2",
     "axios": "^1.13.5",
     "sweetalert2": "^11.26.18"
   },
-  "type": "commonjs",
   "devDependencies": {
     "vite": "^7.3.1"
   }
