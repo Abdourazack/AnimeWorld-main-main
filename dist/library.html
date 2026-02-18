@@ -3,55 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AnimeWorld — Catalogue</title>
-    <link rel="stylesheet" href="./style.css" />
+    <title>AnimeWorld — Bibliothèque</title>
     <link rel="icon" href="data:," />
+    <script type="module" crossorigin src="/assets/library-CXZBNP6y.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/anime.es-C48xQsAk.js">
+    <link rel="stylesheet" crossorigin href="/assets/style-LefNXhtR.css">
   </head>
 
   <body>
     <header class="topbar">
       <div class="topbar__inner">
-        <h1 class="brand">AnimeWorld</h1>
+        <h1 class="brand">Ma Bibliothèque</h1>
 
         <div class="topbar__actions">
           <button id="theme-toggle" class="btn btn--ghost" type="button">
             🌙 Mode sombre
           </button>
           <button class="btn" id="back-home" type="button">Accueil</button>
+          <button class="btn btn--primary" id="go-catalogue" type="button">
+            Catalogue
+          </button>
         </div>
       </div>
     </header>
 
-    <section id="anime-list">
-      <div id="loader">Chargement...</div>
-      <div id="anime-cards"></div>
-
-      <div class="pager">
-        <button id="prev-page" class="btn" type="button">← Précédent</button>
-
-        <div class="pager__info">
-          <span>Page</span>
-          <strong id="page-current">1</strong>
-          <span>/</span>
-          <span id="page-total">?</span>
-        </div>
-
-        <div class="pager__jump">
-          <input id="page-input" type="number" min="1" placeholder="N°" />
-          <button id="go-page" class="btn btn--primary" type="button">
-            Aller
-          </button>
-        </div>
-
-        <button id="next-page" class="btn" type="button">Suivant →</button>
+    <section id="library-list">
+      <div id="library-empty" class="empty" style="display: none;">
+        <h2>Aucun anime dans ta bibliothèque</h2>
+        <p>Ajoute-en depuis le catalogue 🙂</p>
       </div>
+
+      <div id="library-cards"></div>
     </section>
 
     <footer>
       <p>&copy; 2024 Manga & Anime App</p>
     </footer>
 
-    <script type="module" src="main.js"></script>
 
     <script>
       const root = document.documentElement;
@@ -80,6 +68,9 @@
     <script>
       document.getElementById("back-home")?.addEventListener("click", () => {
         window.location.href = "acceuil.html";
+      });
+      document.getElementById("go-catalogue")?.addEventListener("click", () => {
+        window.location.href = "catalogue.html";
       });
     </script>
   </body>
